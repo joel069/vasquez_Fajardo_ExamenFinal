@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Registrar Citas</title>
+	<style>
+		.tabla {
+			border-collapse: collapse;
+		}
+		
+		.cabeceraTabla {
+			text-align: center;
+			background: none repeat scroll 0 0 #E5E5E5;
+			border-bottom: 1px solid #BBBBBB;
+			padding: 8px;
+		}
+		
+		.filaPar {
+			text-align: center;
+			background: none repeat scroll 0 0 #FFFFFFF;
+			border-top: 1px solid #BBBBBB;
+		}
+		
+		.filaImpar {
+			text-align: center;
+			background: none repeat scroll 0 0 #F9F9F9;
+			border-top: 1px solid #BBBBBB;
+		}
+	</style>
+</h:head>
+<h:body>
+	<h3>Citas</h3>
+	<h:form>
+		<h:dataTable value="#{citasBean.citas}" var="c" styleClass="tabla"
+			headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+			<h:column>
+				<f:facet name="header">Codigo</f:facet>#{c.codigo}</h:column>
+			<h:column>
+				<f:facet name="header">Fecha :</f:facet>
+				
+				<h:outputText value="#{c.fecha}"  />
+			</h:column>
+				
+			<h:column>
+				<f:facet name="header">Hora:</f:facet>
+				
+				<h:outputText value="#{c.hora}"  />
+			</h:column>	
+			
+			<h:column>
+				<f:facet name="header">Duracion:</f:facet>
+				
+				<h:outputText value="#{c.duracion}" />
+			</h:column>	
+			
+	
+		</h:dataTable>
+		
+		<div class="form-group">
+		
+			<label class="col-lg-6 control-label">Fecha:
+			<div class="col-lg-6">
+			
+			<h:inputText value="#{citasBean.fecha}"/></div></label>
+		
+		</div>
+		
+		<div class="form-group">
+			<label class="col-lg-6 control-label">Hora:
+				<div class="col-lg-6">
+			<h:inputText value="#{citasBean.hora}"/></div></label>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-lg-6 control-label">Duracion:
+				<div class="col-lg-6">
+			<h:inputText value="#{citasBean.duracion}"/></div></label>
+		</div>
+		
+		
+			 Paciente:<br></br>
+				
+					<h:selectOneMenu value="#{citasBean.paciente}" class="form-control">
+						<f:selectItems value="#{pacienteBean.pacientes}" class="form-control" />
+					</h:selectOneMenu>	
+		
+		
+		<h:commandButton value="Generar Cita" action="#{citasBean.add}" />
+		
+	</h:form>
+</h:body>
+</html>

@@ -133,9 +133,7 @@ public class Paciente implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Paciente [codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", apellidos=" + apellidos
-				+ ", telefono=" + telefono + ", direccion=" + direccion + ", correo=" + correo + ", citas=" + citas
-				+ "]";
+		return  nombre ;
 	}
 
    
